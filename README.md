@@ -35,6 +35,14 @@ For complete functionality, check out the 'advanced' examples.
 
 As a learning excercise, you could start off with a 'simple' example, and add your own code to provide the full functionality found in the 'advanced' examples :) .
 
+To try out the different examples, clone this repo, `cd` into an example folder, and run `elm reactor`.
+
+```bash
+git clone https://github.com/phollyer/elm-ui-menu.git
+cd elm-ui-menu/examples/navigation_bar/advanced
+elm reactor
+```
+
 ```elm
 module Main exposing (main)
 
