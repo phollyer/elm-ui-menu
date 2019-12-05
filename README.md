@@ -169,6 +169,8 @@ Provide multiple levels of options, specifically for the `Navbar` `Context`.
 
 Provide keyboard navigation, selection and cancellation.
 
+Make the position of the Menu controllable by its parent - `below`, `above`, etc
+
 # Credits
 
 [passiomatic](https://discourse.elm-lang.org/t/input-select-not-available-in-elm-ui/2874/5): Links to reading material detailing why `select`s are usually a bad design choice.
