@@ -1,0 +1,21 @@
+{
+    "type": "package",
+    "name": "phollyer/elm-ui-menu",
+    "summary": "A simple menu widget for use with https://github.com/mdgriffith/elm-ui",
+    "license": "BSD-3-Clause",
+    "version": "1.0.0",
+    "exposed-modules": [
+        "Menu",
+        "Menu.Attributes",
+        "Menu.Events",
+        "Menu.Context"
+    ],
+    "elm-version": "0.19.0 <= v < 0.20.0",
+    "dependencies": {
+        "elm/core": "1.0.0 <= v < 2.0.0",
+        "mdgriffith/elm-ui": "1.1.5 <= v < 2.0.0"
+    },
+    "test-dependencies": {
+        "elm-explorations/test": "1.2.2 <= v < 2.0.0"
+    }
+}

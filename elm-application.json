@@ -1,0 +1,8 @@
+{
+    "name": "phollyer/elm-ui-menu",
+    "summary": "A simple menu widget for use with Elm-UI",
+    "version": "1.0.0",
+    "exposed-modules": [
+        "Menu"
+    ]
+}
