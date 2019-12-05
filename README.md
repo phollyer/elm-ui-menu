@@ -35,7 +35,7 @@ For complete functionality, check out the 'advanced' examples.
 
 As a learning excercise, you could start off with a 'simple' example, and add your own code to provide the full functionality found in the 'advanced' examples :) .
 
-```Elm
+```elm
 module Main exposing (main)
 
 import Browser
