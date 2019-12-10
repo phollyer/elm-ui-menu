@@ -9,6 +9,7 @@ module Menu exposing
     , sort
     , maybeSelected
     , options
+    , Position(..), position
     )
 
 {-| 
@@ -39,10 +40,10 @@ The configuration that needs to be passed to [view](#view).
 
 # API
 
-@docs view, config, id, activeId, options, maybeSelected, context, attributes, events, sort
+@docs view, config, id, activeId, options, maybeSelected, context, attributes, events, Position, position, sort
 -}
 
-import Element exposing (Element, Attribute, el, column, below, pointer, width, fill, text, rgb, mouseOver, padding)
+import Element exposing (Element, Attribute, el, column, above, below, pointer, width, fill, text, rgb, mouseOver, padding)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
@@ -52,6 +53,9 @@ import Menu.Attributes as Attributes exposing (Attributes)
 import Menu.Context exposing (Context(..), SearchConfig)
 import Menu.Events as Events exposing (Events)
 
+
+
+-- MODEL
 
 
 {-| This is an opaque type, use the API to interact with it.
@@ -66,6 +70,7 @@ type Config msg =
         , sort : Bool
         , maybeSelected : Maybe String
         , options : List String
+        , position : Position
         }
 
 
@@ -82,6 +87,7 @@ config =
         , sort = True
         , maybeSelected = Nothing
         , options = []
+        , position = Below
         }
 
 
@@ -188,6 +194,22 @@ options options_ (Config conf) =
     Config { conf | options = options_ }
 
 
+{-|
+-}
+type Position
+    = Above
+    | Below
+
+{-| The position in which the Menu will display relative to its'
+parent.
+
+Will default to `Below` if not set.
+-}
+position : Position -> Config msg -> Config msg
+position pos (Config conf) =
+    Config { conf | position = pos }
+
+
 {-| This determines whether the options should be sorted when displayed.
 
 Internally, the default is to call `List.sort` on the options list.
@@ -291,10 +313,17 @@ Create the primary element and the column of options.
 -}
 render : Config msg -> List (Attribute msg) -> List String -> Element msg
 render (Config conf) attrs options_ =
+    let
+        position_ =
+            case conf.position of
+                Above -> above
+                Below -> below
+
+    in
     el
         ( attrs
             |> List.append
-                [ below
+                [ position_
                     ( column
                         ( attrs
                             |> List.append conf.attributes.column
